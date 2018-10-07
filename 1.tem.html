@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <section class="todoapp">
+        <header class="header">
+            <h1>todos</h1>
+            <input autofocus="autofocus" autocomplete="off" placeholder="What needs to be done?" class="new-todo">
+        </header>
+        <section class="main">
+            <input type="checkbox" class="toggle-all">
+            <ul class="todo-list">
+                <li class="todo">
+                    <div class="view">
+                        <input type="checkbox" class="toggle">
+                        <label>e</label>
+                        <button class="destroy"></button>
+                    </div>
+                    <input type="text" class="edit">
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <span class="todo-count">
+                <strong>1</strong> item left
+            </span>
+            <ul class="filters">
+                <li>
+                    <a href="#/all" class="selected">All</a>
+                </li>
+                <li>
+                    <a href="#/active" class="">Active</a>
+                </li>
+                <li>
+                    <a href="#/completed" class="">Completed</a>
+                </li>
+            </ul>
+            <button class="clear-completed" style="display: none;">
+                Clear completed
+            </button>
+        </footer>
+    </section>
+    <!-- 作者信息 -->
+    <footer class="info">
+        <p>双击编辑待办事项</p>
+        <p>原作者 <a href="http://evanyou.me">Evan You</a></p>
+        <p><a href="http://todomvc.com">TodoMVC</a>的一部分</p>
+    </footer>
+</body>
+
+</html>
+<script>
+new Vue({
+    el: '.todoapp',
+    data: {
+        inputTodo:'',
+        todos: []
+    },
+    methods: {
+        addTodo(){
+            this.todos.push({
+                content: this.inputTodo,
+                completed: false
+            });
+        }
+    }
+});
+</script>
